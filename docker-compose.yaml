@@ -1,0 +1,25 @@
+version: "3"
+services:
+  redis:
+    image: redis
+
+  postgresql:
+    image: postgres:9.4
+    environment:
+      POSTGRES_USER: postgres
+      POSTGRES_PASSWORD: postgres
+    ports:
+      - "5432:5432"
+    volumes:
+      - /root/postgres-data:/var/lib/postgresql/data
+
+  mysql:
+    image: mysql:latest
+    environment:
+      MYSQL_ROOT_PASSWORD: root
+      MYSQL_USER: root
+      MYSQL_PASSWORD: root
+    ports:
+      - "3306:3306"
+    volumes:
+      - /root/mysql-data:/var/lib/mysql
